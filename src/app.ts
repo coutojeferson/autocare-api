@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from "cors"
 import { VehicleController } from './controllers/vehicleController';
 import { MaintenanceController } from './controllers/maintenanceController';
 import { vehicleRoutes } from './routes/vehicleRoutes';
@@ -12,6 +13,7 @@ export function createApp(
 ) {
   const app = express();
 
+  app.use(cors());
   app.use(express.json());
 
   app.get('/health', (req, res) => {
